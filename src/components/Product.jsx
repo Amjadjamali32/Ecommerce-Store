@@ -26,7 +26,7 @@ const Product = () => {
         <div className="pt-20 mx-4">
             <Link
                 to="/shop"
-                className="text-blue-500 hover:underline text-lg mb-4 inline-block"
+                className="text-blue-500 hover:underline text-lg my-4 inline-block"
             >
                 ← Back to Shop
             </Link>
@@ -34,9 +34,9 @@ const Product = () => {
                 <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-auto object-cover rounded-md shadow-md"
+                    className="w-full h-auto object-cover rounded-md shadow-md mx-4 my-4 lg:w-4/6"
                 />
-                <div>
+                <div className='mt-8 my-4'>
                     <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
                     <p className="text-gray-700 text-lg mb-6">{product.description}</p>
                     <p className="text-2xl font-bold mb-4">Price: ${product.price}</p>

@@ -2,6 +2,33 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
+    // Array of featured product data
+    const featuredProducts = [
+        {
+            id: 1,
+            name: 'Smart Watch',
+            price:2690,
+            image: 'https://img.drz.lazcdn.com/static/pk/p/64a14abfb3d1fe2a19fe3e0ef631cc8f.png_400x400q75.png_.webp', 
+        },
+        {
+            id: 2,
+            name: 'Wireless Headphones',
+            price: 1299,
+            image: 'https://img.drz.lazcdn.com/static/pk/p/034aa3c73c0ece59448b1c29a929e2d8.jpg_400x400q75.jpg_.webp',
+        },
+        {
+            id: 3,
+            name: 'Nokia 106',
+            price: 2730,
+            image: 'https://img.drz.lazcdn.com/g/kf/Sf8fc3d9f1e2f4af682ae234073f8d695w.jpg_400x400q75.jpg_.webp', 
+        },
+        {
+            id: 4,
+            name: 'Ergonomic dual Mode',
+            price: 729,
+            image: 'https://img.drz.lazcdn.com/static/pk/p/e744b0b9d43a04bac05b0a95667e3879.jpg_400x400q75.jpg_.webp', 
+        },
+    ];
     return (
         <div className='pt-16'>
             <div className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-10 px-4 md:py-20">
@@ -25,22 +52,21 @@ const Home = () => {
             <div className="max-w-7xl mx-auto py-10 px-4">
                 <h2 className="text-2xl font-bold text-center mb-8">Featured Products</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {/* Sample Product */}
-                    {[1, 2, 3, 4].map((product, index) => (
+                {featuredProducts.map((product) => (
                         <div
-                            key={index}
+                            key={product.id}
                             className="bg-white shadow rounded overflow-hidden hover:shadow-lg transition"
                         >
                             <img
-                                src={`https://via.placeholder.com/300?text=Product+${index + 1}`}
-                                alt={`Product ${index + 1}`}
+                                src={product.image} // Use product image URL
+                                alt={product.name}
                                 className="w-full h-48 object-cover"
                             />
                             <div className="p-4">
-                                <h3 className="font-semibold text-lg">Product {index + 1}</h3>
-                                <p className="text-gray-600 mt-2">$19.99</p>
+                                <h3 className="font-semibold text-lg">{product.name}</h3>
+                                <p className="text-gray-600 mt-2">${product.price}</p>
                                 <Link
-                                    to="/"
+                                    to={`/product/${product.id}`} // Link to product details
                                     className="mt-4 inline-block bg-blue-600 text-white text-sm font-semibold py-2 px-4 rounded hover:bg-blue-700"
                                 >
                                     View Details
