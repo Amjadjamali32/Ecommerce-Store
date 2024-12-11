@@ -4,11 +4,11 @@ import { addToCart } from '../app/features/cartSlice.js';
 import { Link } from 'react-router-dom';
 
 const Products = () => {
-    const products = useSelector((state) => state.products); // Access products from Redux store
+    const products = useSelector((state) => state.products); 
     const dispatch = useDispatch();
 
     const handleAddToCart = (product) => {
-        dispatch(addToCart(product)); // Add product to cart
+        dispatch(addToCart(product)); 
     };
 
     return (

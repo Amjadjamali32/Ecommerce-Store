@@ -1,25 +1,24 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
-import { addToCart } from '../app/features/cartSlice';  // Import the addToCart action
+import { addToCart } from '../app/features/cartSlice'; 
 
 const Product = () => {
-    const { id } = useParams(); // Get the product ID from the URL
-    const dispatch = useDispatch(); // Use dispatch to send actions to the store
+    const { id } = useParams(); 
+    const dispatch = useDispatch(); 
     
     // Find the product from the Redux store based on the ID
     const product = useSelector((state) =>
         state.products.find((p) => p.id === Number(id))
     );
 
-    // If the product is not found, display a "Product not found" message
     if (!product) {
         return <h2 className="text-center text-2xl mt-10">Product not found!</h2>;
     }
 
     // Handle adding the product to the cart
     const handleAddToCart = () => {
-        dispatch(addToCart(product)); // Dispatch the action to add the product to the cart
+        dispatch(addToCart(product)); 
     };
 
     return (
@@ -41,7 +40,7 @@ const Product = () => {
                     <p className="text-gray-700 text-lg mb-6">{product.description}</p>
                     <p className="text-2xl font-bold mb-4">Price: ${product.price}</p>
                     <button
-                        onClick={handleAddToCart} // Call handleAddToCart on button click
+                        onClick={handleAddToCart} 
                         className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition"
                     >
                         Add to Cart

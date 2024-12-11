@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, clearCart } from '../app/features/cartSlice.js';
-import logo from "../assets/cart.jpg";
+import logo from "../assets/cart.png";
 
 const Cart = () => {
     const cartItems = useSelector((state) => state.cart.items); // Access cart items from Redux store
